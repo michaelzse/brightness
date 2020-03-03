@@ -1,0 +1,124 @@
+<div id="all">
+  <div id="text">
+    <h2>Brightness slider</h2>
+    
+    <p>Protect your eyes</p>
+    <p>improve your math</p>
+     <input type="math" name="math" placeholder="" />
+    
+  </div>
+    <div id="slider" class="slider-parallel">
+    <div class="knob" style="left:0px"></div>
+    </div>
+</div>
+
+<style>
+html, body{
+  width: 100%;
+  height: 100%;
+  background:   #FF4500
+ }
+#all{
+  position: fixed;
+  top: 43%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  -wekbit-transform: translate(-50%, -50%);
+}
+#text{
+  position: absolute;
+  left: -300px;
+  width: 300px;
+  text-align: left;
+  color: #FFB372;
+  line-height: 24px;
+}
+#blurb h2{
+  line-height: 30px;
+  color: #FFDD77;
+}
+  input {
+    margin: 0 0 0.5em 0;
+    border: 1px solid $grey;
+    padding: 6px 0px;
+    color: $dark_grey;
+    font-size: pxtoem(16, 16);
+    position:relative;
+    top:-180px;
+    left:570px
+ }
+#slider{
+  position: relative;
+  width: 400px;
+  height: 40px;
+  border-radius: 20px;
+  background: rgb(193,7,7);
+
+}
+#slider:before{
+  content: '25 x 4    =100% ';
+  position: relative;
+  top: -110px;
+  left:300px;
+  color: #FFB372;
+  font-size: 1.5rem;
+  line-height: 180px;
+  white-space: pre;
+  
+}
+
+
+
+#slider:after{
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: 370px;
+  height: 10px;
+  transform: translate(-50%, -50%);
+  -wekbit-transform: translate(-80%, -50%);
+  border-radius: 5px;
+  background: rgb(50,23,19);
+  background: linear-gradient(180deg, rgba(50,23,19,1) 0%, rgba(36,16,8,1) 55%, rgba(20,6,0,1) 100%);
+}
+#slider .knob{
+  position: absolute;
+  z-index: 1;
+  top: -1px;
+  margin: 4px 3px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  border-radius: 17px;
+  background: rgb(223,210,208);
+
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, .8);
+
+
+}
+#text:
+#slider .knob.active:before,
+#slider .knob.active:after{
+  opacity: 0;
+}
+</style>
+
+<script>
+  $(document).ready(() => {
+
+  
+
+  $('#slider.slider-parallel .knob').draggable({axis: 'x', containment: '#slider', scroll: false}).mousedown(function() {
+    $(this).addClass('active');
+  });
+
+  
+  $('body').mouseup(function() {
+    $('#slider.slider-parallel .knob').animate({left: 0}, 1000, 'easeOutBounce');
+  });
+
+});
+  
+  </script>
